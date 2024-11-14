@@ -8,10 +8,34 @@
 </head>
 <body>
     <div id="app">
-        {{nome}},
-        {{idade}},
-        {{faculdade.curso}}
-    </div>
+        <span>
+            Login: {{nome}},
+            {{idade}} anos,
+            {{faculdade.curso}}
+        </span>
+        <br>
+        <br>
+        <div>
+            <span class="block">Reatividade</span>
+            <br>
+            <span>Camisas</span>
+            <button @click="totalCamisa++">Adicionar</button>
+            <button @click="totalCamisa--">Remover</button>
+            <span>{{totalCamisa}}</span>
+            <p>Total Camisa: <span>{{precoCamisa * totalCamisa}}</span></p>
+            <span>Bermudas</span>
+            <button @click="totalBermuda++">Adicionar</button>
+            <button @click="totalBermuda--">Remover</button>
+            <span>{{totalBermuda}}</span>
+            <p>Total Bermuda: <span>{{precoBermuda * totalBermuda}}</span></p>
+
+            <p>Total: <span>{{(precoBermuda * totalBermuda) + (precoCamisa * totalCamisa)}}</span></p>
+
+
+
+        </div>
+    </div>  
+
 
     <script>
         const vm = new Vue({
@@ -23,9 +47,13 @@
                     curso: "Sistemas de Informação",
                     periodo: "8 periodo",
                 },
+                precoCamisa: 50,
+                precoBermuda:70,
+                totalCamisa: 0,
+                totalBermuda: 0,
+                total: 0,
             },
         });
-        console.log(vm);
     </script>
 </body>
 </html>
